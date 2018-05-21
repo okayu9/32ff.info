@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <title>32ff.info</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>32ff.info</h1>
+      <p>
+        お使いのデバイスが平成の次の元号に対応しているのかを確認できます<br>
+        対応している場合は次の元号が正しく表示され、未対応の場合は四角の豆腐が表示されます
+      </p>
+    </header>
+    <section>
+      <h2>Unicode</h2>
+      <p>
+        &#x337b; の次の元号は &#x32ff; です。
+      </p>
+    </section>
+    <section>
+      <h2>NFKD</h2>
+      <p>
+        <span id="regnal_year1"></span> の次の元号は <span id="regnal_year2"></span> です。
+      </p>
+    </section>
+    <section>
+      <h2>新元号発表</h2>
+      <p id="remaining">
+        新元号の発表まであと <span id="remaining"></span>日 です。
+      </p>
+    </section>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <script>
+  $("#regnal_year1").text(String.fromCharCode(0x337b).normalize("NFKD"));
+  $("#regnal_year2").text(String.fromCharCode(0x32ff).normalize("NFKD"));
+  var today = new Date();
+  var xday = new Date(2019, 4-1, 1);
+  var dayms = 24 * 60 * 60 * 1000;
+  var n = Math.floor((xday.getTime() - today.getTime()) / dayms) + 1;
+  if(0<n){
+    $("#remaining").text("新元号の発表まであと " + n + "日 です。");
+  }
+  else if(n == 0){
+    $("#remaining").text("新元号は本日発表予定です。");
+  }
+  else{
+    $("#remaining").text("新元号は " + (-n) + " 日前に発表されている予定です。");
+  }
+  </script>
+</body>
+</html>
