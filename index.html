@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
-  <title>32ff.info</title>
+  <title>U+32FF</title>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>32ff.info</h1>
+      <h1>U+32FF</h1>
       <p>
         お使いのデバイスが平成の次の元号に対応しているのかを確認できます<br>
         対応している場合は次の元号が正しく表示され、未対応の場合は四角の豆腐が表示されます
@@ -19,11 +19,17 @@
     <section>
       <h2>Unicode</h2>
       <p>
+        平成の次の元号は既にUnicode上で合字(U+32FF)として割り当てられているので、そこを参照することで新元号の合字が得られます。
+      </p>
+      <p>
         &#x337b; の次の元号は &#x32ff; です。
       </p>
     </section>
     <section>
       <h2>NFKD</h2>
+      <p>
+        上の合字はUnicodeのNFKDにより分解できます。&#x337b; を平成に分解する処理を新元号の合字に対して行います。
+      </p>
       <p>
         <span id="regnal_year1"></span> の次の元号は <span id="regnal_year2"></span> です。
       </p>
